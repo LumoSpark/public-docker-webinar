@@ -16,6 +16,10 @@ DB_NAME=dbname
 
 DB_PORT=3306
 
+# Installing docker on Ubuntu 18.04
+
+You can use install_docker.sh to install docker-ce on Ubuntu 18.04
+
 # TODO
 
 Add webinar video later and presentation
