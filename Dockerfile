@@ -22,12 +22,15 @@ COPY myapp/ /var/www/html/
 COPY myapp/composer.json /var/www/html/
 COPY myapp/../.env /var/www/
 
-RUN composer install
+RUN composer install --no-dev --optimize-autoloader
 RUN rm /var/www/html/composer*
 
 COPY vhost.conf /etc/apache2/sites-enabled/000-default.conf
 RUN a2enmod rewrite
 
 CMD /usr/sbin/apache2ctl -D FOREGROUND
+
+RUN ln -sf /dev/stdout /var/log/apache2/other_vhosts_access.log
+RUN ln -sf /dev/stderr /var/log/apache2/error.log
 
 EXPOSE 80
