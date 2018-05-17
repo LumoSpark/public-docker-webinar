@@ -1,6 +1,6 @@
 # About
 
-This repo is used for examples used during Advanced Docker webinar on 10.5.2018
+This repo is used for examples used during Advanced Docker webinar on 17.5.2018
 
 # Installing
 
@@ -18,7 +18,7 @@ DB_PORT=3306
 
 ```shell
 cd public-docker-webinar
-sudo docker build . -t username:image-name
+docker build . -t username:image-name
 ```
 
 ## Uploading image to Hyper.sh
@@ -31,7 +31,13 @@ cat image.tar | hyper load
 
 # Installing docker on Ubuntu 18.04
 
-You can use install_docker.sh to install docker-ce on Ubuntu 18.04
+```shell
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic test"
+sudo apt update
+sudo apt install docker-ce
+```
 
 # TODO
 
